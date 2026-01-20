@@ -7,10 +7,10 @@ interface OfferStackProps {
 
 export const OfferStack: React.FC<OfferStackProps> = ({ onCtaClick }) => {
   const bonuses = [
-    { name: "The Invisible Shift Workbook (Digital PDF)", value: "$97" },
-    { name: "Bonus 1: The 'Food Anchors' Cheat Sheet", value: "$27" },
-    { name: "Bonus 2: The 'Skin Barrier Rescue' Guide", value: "$27" },
-    { name: "Bonus 3: The 'Micro-Boundary' Scripts", value: "$47" },
+    { name: "The Invisible Shift Workbook (Digital PDF)", value: "$97", description: "" },
+    { name: "Bonus 1: The Identity Reset Visuals™", value: "$27", description: "Watch your nervous system recalibrate in real time." },
+    { name: "Bonus 2: The New Baseline Blueprint™", value: "$27", description: "See why effort stopped working — and what replaces it." },
+    { name: "Bonus 3: The New Baseline Podcast™", value: "$47", description: "Short audio recalibrations for women rebuilding capacity." },
   ];
 
   return (
@@ -26,8 +26,11 @@ export const OfferStack: React.FC<OfferStackProps> = ({ onCtaClick }) => {
 
         <div className="space-y-6 mb-12">
           {bonuses.map((item, idx) => (
-            <div key={idx} className="flex justify-between items-center border-b border-gray-100 pb-4">
-              <span className="text-lg font-medium text-[#444444]">{item.name}</span>
+            <div key={idx} className="flex justify-between items-start border-b border-gray-100 pb-4">
+              <div className="flex flex-col">
+                <span className="text-lg font-medium text-[#444444]">{item.name}</span>
+                {item.description && <span className="text-sm text-gray-500 mt-1 italic">{item.description}</span>}
+              </div>
               <span className="text-lg font-bold text-primary">{item.value}</span>
             </div>
           ))}
